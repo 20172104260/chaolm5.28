@@ -14,7 +14,7 @@ private:
 public:
 	void display();
 	void conversion(int a, int b);
-	CFeet operator +(CFeet & ojbk);
+	CFeet operator -(CFeet & ojbk);
 
 };
 void CFeet::display()
@@ -28,22 +28,31 @@ void CFeet::conversion(int fe, int in)
 	inches = in % 12;
 }
 
-CFeet CFeet::operator+(CFeet & ojbk)
+CFeet CFeet::operator-(CFeet & ojbk)
 {
-	CFeet add;
-	add.conversion(feet + ojbk.feet, inches + ojbk.inches);
-	return add;
+	if (inches < ojbk.inches)
+	{
+		CFeet add;
+		add.conversion(feet - ojbk.feet, ojbk.inches - inches);
+		return add;
+	}
+	else
+	{
+		CFeet add;
+		add.conversion(feet - ojbk.feet, inches - ojbk.inches);
+		return add;
+	}
 }
 
 
 int main()
 {
 	CFeet A, B, C;
-	A.conversion(-10,-8);
+	A.conversion(10, 6);
 	A.display();
-	B.conversion(12,6);
+	B.conversion(12, 8);
 	B.display();
-	C = A + B;
+	C = A - B;
 	C.display();
 	return 0;
 }
