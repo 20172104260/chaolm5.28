@@ -15,6 +15,7 @@ public:
 	void display();
 	void conversion(int a, int b);
 	CFeet operator +(CFeet & ojbk);
+
 };
 void CFeet::display()
 {
@@ -38,7 +39,7 @@ CFeet CFeet::operator+(CFeet & ojbk)
 int main()
 {
 	CFeet A, B, C;
-	A.conversion(10,8);
+	A.conversion(-10,-8);
 	A.display();
 	B.conversion(12,6);
 	B.display();
